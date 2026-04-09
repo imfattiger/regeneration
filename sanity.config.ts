@@ -6,8 +6,8 @@ import { schemaTypes } from "./sanity/schemaTypes";
 export default defineConfig({
   name: "regeneration-studio",
   title: "Regeneration Studio",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
+  projectId: "0qnheos2",
+  dataset: "production",
   basePath: "/studio",
   plugins: [structureTool(), visionTool()],
   schema: {
