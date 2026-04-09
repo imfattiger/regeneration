@@ -49,9 +49,10 @@ export const aboutPage = defineType({
           ],
           preview: {
             select: { title: "title.zhTW", media: "image" },
-            prepare: ({ title, media }: { title: string; media: unknown }) => ({
-              title: title ?? "未命名步驟",
-              media,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            prepare: (value: Record<string, any>) => ({
+              title: value.title ?? "未命名步驟",
+              media: value.media,
             }),
           },
         },
