@@ -12,6 +12,7 @@ type Product = {
   name: { zhTW: string; en: string };
   slug: { current: string };
   price: number;
+  salePrice?: number;
   status: string;
   coverImage?: { asset: { _ref: string } };
 };
@@ -83,13 +84,23 @@ export default async function ShopPage() {
                 <p className="text-xs font-bold tracking-wide truncate group-hover:opacity-60 transition-opacity">
                   {product.name[lang]}
                 </p>
-                <p className="text-xs text-foreground/40 mt-0.5">
-                  {product.status === "sold_out"
-                    ? t("sold_out")
-                    : product.status === "coming_soon"
-                      ? t("coming_soon")
-                      : `NT$ ${product.price?.toLocaleString()}`}
-                </p>
+                <div className="mt-0.5">
+                  {product.status === "sold_out" ? (
+                    <span className="text-xs text-foreground/40">{t("sold_out")}</span>
+                  ) : product.status === "coming_soon" ? (
+                    <span className="text-xs text-foreground/40">{t("coming_soon")}</span>
+                  ) : product.salePrice ? (
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold">NT$ {product.salePrice.toLocaleString()}</span>
+                      <span className="text-xs text-foreground/30 line-through">NT$ {product.price?.toLocaleString()}</span>
+                      <span className="text-[10px] bg-foreground text-background px-1 py-0.5">
+                        {Math.round((1 - product.salePrice / product.price) * 10) * 10}% OFF
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="text-xs text-foreground/40">NT$ {product.price?.toLocaleString()}</span>
+                  )}
+                </div>
               </Link>
             ))}
           </div>

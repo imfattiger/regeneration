@@ -16,6 +16,7 @@ type ProductDetail = {
   description?: { zhTW: string; en: string };
   material?: { zhTW: string; en: string };
   price: number;
+  salePrice?: number;
   images?: Array<{ asset: { _ref: string } }>;
   inventory: number;
   status: string;
@@ -84,13 +85,23 @@ export default async function ProductPage({
               {product.name[lang]}
             </h1>
 
-            <p className="text-lg mb-8">
-              {product.status === "sold_out"
-                ? locale === "en" ? "Sold Out" : "已售完"
-                : product.status === "coming_soon"
-                  ? locale === "en" ? "Coming Soon" : "即將上市"
-                  : `NT$ ${product.price?.toLocaleString()}`}
-            </p>
+            <div className="mb-8">
+              {product.status === "sold_out" ? (
+                <p className="text-lg text-foreground/40">{locale === "en" ? "Sold Out" : "已售完"}</p>
+              ) : product.status === "coming_soon" ? (
+                <p className="text-lg text-foreground/40">{locale === "en" ? "Coming Soon" : "即將上市"}</p>
+              ) : product.salePrice ? (
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="text-2xl font-bold">NT$ {product.salePrice.toLocaleString()}</span>
+                  <span className="text-lg text-foreground/30 line-through">NT$ {product.price?.toLocaleString()}</span>
+                  <span className="text-xs bg-foreground text-background px-2 py-1 tracking-widest">
+                    {Math.round((1 - product.salePrice / product.price) * 10) * 10}% OFF
+                  </span>
+                </div>
+              ) : (
+                <p className="text-lg">NT$ {product.price?.toLocaleString()}</p>
+              )}
+            </div>
 
             {product.material && (product.material[lang] || product.material[fallbackLang]) && (
               <div className="mb-6">
@@ -113,7 +124,7 @@ export default async function ProductPage({
               product={{
                 id: product._id,
                 name: product.name[lang],
-                price: product.price,
+                price: product.salePrice ?? product.price,
                 image: images[0] ? urlFor(images[0]).width(200).height(200).url() : undefined,
               }}
               available={available}

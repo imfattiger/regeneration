@@ -40,7 +40,12 @@ export const product = defineType({
     }),
     defineField({
       name: "price",
-      title: "價格 (TWD)",
+      title: "原價 (TWD)",
+      type: "number",
+    }),
+    defineField({
+      name: "salePrice",
+      title: "折扣價 (TWD) — 填入後自動顯示原價劃掉",
       type: "number",
     }),
     defineField({

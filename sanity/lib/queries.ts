@@ -64,6 +64,7 @@ export const productListQuery = groq`
     name,
     slug,
     price,
+    salePrice,
     status,
     "coverImage": images[0]
   }
@@ -77,6 +78,7 @@ export const productDetailQuery = groq`
     description,
     material,
     price,
+    salePrice,
     images,
     inventory,
     status
