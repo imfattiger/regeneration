@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "lookbook": "Lookbook",
+    "shop": "Shop",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "REGENERATION STUDIO",
+    "hero_subtitle": "Jacket fabric reborn as a five-panel cap",
+    "process_title": "The Process",
+    "featured_title": "Featured Caps",
+    "instagram_title": "Follow Us"
+  },
+  "about": {
+    "title": "About Regeneration Studio",
+    "story_title": "Brand Story",
+    "process_title": "Our Process"
+  },
+  "lookbook": {
+    "title": "Lookbook",
+    "subtitle": "The fabric story behind every cap"
+  },
+  "shop": {
+    "title": "Shop",
+    "sold_out": "Sold Out",
+    "coming_soon": "Coming Soon",
+    "add_to_cart": "Add to Cart",
+    "material": "Material",
+    "size": "Size"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "checkout": "Checkout",
+    "total": "Subtotal",
+    "remove": "Remove"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "success": "Message sent, we'll get back to you soon"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "shipping": "Shipping Policy",
+    "returns": "Returns Policy",
+    "privacy": "Privacy Policy"
+  }
+}

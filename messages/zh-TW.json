@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於",
+    "lookbook": "作品集",
+    "shop": "商店",
+    "contact": "聯絡"
+  },
+  "home": {
+    "hero_title": "REGENERATION STUDIO",
+    "hero_subtitle": "外套布料重生，成為一頂帽子",
+    "process_title": "製作過程",
+    "featured_title": "精選作品",
+    "instagram_title": "追蹤我們"
+  },
+  "about": {
+    "title": "關於 Regeneration Studio",
+    "story_title": "品牌故事",
+    "process_title": "製作流程"
+  },
+  "lookbook": {
+    "title": "作品集",
+    "subtitle": "每一頂帽子背後的布料故事"
+  },
+  "shop": {
+    "title": "商店",
+    "sold_out": "已售完",
+    "coming_soon": "即將上市",
+    "add_to_cart": "加入購物車",
+    "material": "材質",
+    "size": "尺寸"
+  },
+  "cart": {
+    "title": "購物車",
+    "empty": "購物車是空的",
+    "checkout": "前往結帳",
+    "total": "小計",
+    "remove": "移除"
+  },
+  "contact": {
+    "title": "聯絡我們",
+    "name": "姓名",
+    "email": "電子郵件",
+    "message": "訊息",
+    "send": "送出",
+    "success": "訊息已送出，我們會盡快回覆"
+  },
+  "footer": {
+    "rights": "版權所有",
+    "shipping": "運送政策",
+    "returns": "退換政策",
+    "privacy": "隱私政策"
+  }
+}
