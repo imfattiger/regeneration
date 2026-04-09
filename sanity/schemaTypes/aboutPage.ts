@@ -4,8 +4,6 @@ export const aboutPage = defineType({
   name: "aboutPage",
   title: "關於頁面",
   type: "document",
-  // Singleton — only one document of this type
-  __experimental_actions: ["update", "publish"],
   fields: [
     defineField({
       name: "brandStory",
