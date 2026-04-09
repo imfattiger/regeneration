@@ -36,6 +36,14 @@ yarn-error.log*
 # vercel
 .vercel
 
+# shopee exports & temp files
+*.csv
+*.xlsx
+~$*
+dev.log
+作品簡介.txt
+"C:*"
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
