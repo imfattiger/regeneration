@@ -13,19 +13,11 @@ const LINES = [
     available: true,
   },
   {
-    char: "嵐",
-    name: "AURA",
-    element: { zhTW: "風", en: "Wind" },
-    desc: { zhTW: "精品支線", en: "Premium Line" },
-    href: null,
-    available: false,
-  },
-  {
     char: "然",
     name: "EMBER",
     element: { zhTW: "火", en: "Fire" },
     desc: { zhTW: "客訂製作", en: "Custom Orders" },
-    href: "/contact",
+    href: "/shop",
     available: true,
   },
   {
@@ -35,6 +27,14 @@ const LINES = [
     desc: { zhTW: "品牌量產", en: "Production Line" },
     href: "/shop",
     available: true,
+  },
+  {
+    char: "嵐",
+    name: "AURA",
+    element: { zhTW: "風", en: "Wind" },
+    desc: { zhTW: "精品支線", en: "Premium Line" },
+    href: null,
+    available: false,
   },
 ];
 
