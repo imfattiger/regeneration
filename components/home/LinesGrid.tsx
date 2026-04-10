@@ -12,7 +12,8 @@ const LINES = [
     desc: { zhTW: "選材製作", en: "Curated Materials" },
     href: "/shop",
     available: true,
-    bgImage: "/lines/lann.jpg",
+    bgWeb: "/lines/lann-web.jpg",
+    bgPhone: "/lines/lann-phone.jpg",
   },
   {
     char: "然",
@@ -21,7 +22,8 @@ const LINES = [
     desc: { zhTW: "客訂製作", en: "Custom Orders" },
     href: "/shop",
     available: true,
-    bgImage: "/lines/ember.jpg",
+    bgWeb: "/lines/ember-web.jpg",
+    bgPhone: "/lines/ember-phone.jpg",
   },
   {
     char: "苒",
@@ -30,7 +32,8 @@ const LINES = [
     desc: { zhTW: "品牌量產", en: "Production Line" },
     href: "/shop",
     available: true,
-    bgImage: "/lines/terra.jpg",
+    bgWeb: "/lines/terra-web.jpg",
+    bgPhone: "/lines/terra-phone.jpg",
   },
   {
     char: "嵐",
@@ -39,7 +42,8 @@ const LINES = [
     desc: { zhTW: "精品支線", en: "Premium Line" },
     href: null,
     available: false,
-    bgImage: "/lines/aura.jpg",
+    bgWeb: "/lines/aura-web.jpg",
+    bgPhone: "/lines/aura-phone.jpg",
   },
 ];
 
@@ -57,27 +61,39 @@ function LineCard({
         opacity: line.available ? 1 : 0.4,
       }}
     >
-      {/* 背景圖 */}
-      {line.bgImage && (
+      {/* 手機背景圖 */}
+      {line.bgPhone && (
         <Image
-          src={line.bgImage}
+          src={line.bgPhone}
           alt=""
           fill
-          className="object-cover object-center"
+          className="object-cover object-center md:hidden"
+          aria-hidden="true"
+        />
+      )}
+      {/* 桌機背景圖 */}
+      {line.bgWeb && (
+        <Image
+          src={line.bgWeb}
+          alt=""
+          fill
+          className="object-cover object-center hidden md:block"
           aria-hidden="true"
         />
       )}
 
       {/* 底部漸層，確保文字可讀 */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)",
-        }}
-      />
+      {(line.bgPhone || line.bgWeb) && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)",
+          }}
+        />
+      )}
 
       {/* 大漢字背景（無背景圖時才顯示） */}
-      {!line.bgImage && (
+      {!line.bgPhone && !line.bgWeb && (
         <span
           className="absolute inset-0 flex items-center justify-center text-[8rem] md:text-[10rem] font-bold leading-none select-none"
           style={{ opacity: 0.06 }}
