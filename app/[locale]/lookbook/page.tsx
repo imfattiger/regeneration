@@ -4,6 +4,7 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { lookbookListQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import LinesGrid from "@/components/home/LinesGrid";
 
 type LookbookEntry = {
   _id: string;
@@ -25,6 +26,9 @@ export default async function LookbookPage() {
 
   return (
     <div className="pt-24">
+      {/* 四線滿版格子 */}
+      <LinesGrid />
+
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="mb-16">
           <h1 className="text-xs tracking-widest uppercase text-muted mb-3">

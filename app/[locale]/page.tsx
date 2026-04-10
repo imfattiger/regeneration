@@ -4,8 +4,6 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { featuredProductsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
-import ElementsBackground from "@/components/home/ElementsBackground";
-import LinesGrid from "@/components/home/LinesGrid";
 
 type Product = {
   _id: string;
@@ -27,11 +25,9 @@ export default async function HomePage() {
     .catch(() => []);
 
   return (
-    <div className="relative">
-      <ElementsBackground />
-
+    <div>
       {/* Hero */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <p className="text-xs tracking-widest uppercase text-muted mb-6">
           Regeneration Studio
         </p>
@@ -67,11 +63,6 @@ export default async function HomePage() {
             {locale === "en" ? "About" : "關於"} →
           </Link>
         </div>
-      </section>
-
-      {/* 四線格子 */}
-      <section className="relative z-10 border-t border-foreground/10">
-        <LinesGrid />
       </section>
 
       {/* Featured Products */}

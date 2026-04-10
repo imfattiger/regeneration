@@ -4,27 +4,23 @@ export default function ElementsBackground() {
   return (
     <>
       <style>{`
-        /* 水 — 細橫線從左往右緩慢飄移 */
         @keyframes water-drift {
-          0%   { transform: translateX(-100%); }
-          100% { transform: translateX(100vw); }
+          0%   { transform: translateX(-120%); }
+          100% { transform: translateX(110vw); }
         }
-        /* 風 — 圓點緩慢上升並淡出 */
         @keyframes wind-rise {
-          0%   { transform: translateY(0);     opacity: 0; }
-          20%  { opacity: 0.06; }
-          80%  { opacity: 0.06; }
-          100% { transform: translateY(-80px); opacity: 0; }
+          0%   { transform: translateY(0px);   opacity: 0; }
+          15%  { opacity: 1; }
+          85%  { opacity: 1; }
+          100% { transform: translateY(-60px); opacity: 0; }
         }
-        /* 火 — 光點閃爍 */
         @keyframes fire-flicker {
           0%, 100% { opacity: 0; }
-          50%       { opacity: 0.08; }
+          40%, 60%  { opacity: 1; }
         }
-        /* 土 — 寬橫線反向極慢掃過 */
         @keyframes earth-sweep {
-          0%   { transform: translateX(100vw); }
-          100% { transform: translateX(-100%); }
+          0%   { transform: translateX(110vw); }
+          100% { transform: translateX(-120%); }
         }
       `}</style>
 
@@ -38,76 +34,74 @@ export default function ElementsBackground() {
           overflow: "hidden",
         }}
       >
-        {/* 水 — 5 條細線 */}
-        {[18, 35, 52, 68, 83].map((top, i) => (
+        {/* 水 — 細橫線往右漂 */}
+        {[15, 32, 50, 66, 82].map((top, i) => (
           <div
             key={`w${i}`}
             style={{
               position: "absolute",
               top: `${top}%`,
               left: 0,
-              width: "40%",
+              width: "35%",
               height: "1px",
-              borderBottom: "1px solid currentColor",
-              opacity: 0.05,
-              animation: `water-drift ${22 + i * 4}s linear infinite`,
-              animationDelay: `${i * 4.5}s`,
+              background: "rgba(255,255,255,0.07)",
+              animation: `water-drift ${20 + i * 5}s linear infinite`,
+              animationDelay: `${i * 4}s`,
             }}
           />
         ))}
 
-        {/* 風 — 圓點陣 */}
-        {Array.from({ length: 12 }).map((_, i) => (
+        {/* 風 — 圓點緩慢上升 */}
+        {Array.from({ length: 14 }).map((_, i) => (
           <div
             key={`a${i}`}
             style={{
               position: "absolute",
-              left: `${8 + (i % 6) * 16}%`,
-              top: `${20 + Math.floor(i / 6) * 40}%`,
-              width: 2,
-              height: 2,
+              left: `${5 + (i % 7) * 14}%`,
+              top: `${50 + Math.floor(i / 7) * 30}%`,
+              width: 3,
+              height: 3,
               borderRadius: "50%",
-              background: "currentColor",
+              background: "rgba(255,255,255,0.15)",
               opacity: 0,
-              animation: `wind-rise ${18 + (i % 4) * 3}s ease-in-out infinite`,
-              animationDelay: `${i * 1.8}s`,
+              animation: `wind-rise ${15 + (i % 5) * 3}s ease-in-out infinite`,
+              animationDelay: `${i * 1.5}s`,
             }}
           />
         ))}
 
         {/* 火 — 光點閃爍 */}
-        {Array.from({ length: 8 }).map((_, i) => (
+        {Array.from({ length: 10 }).map((_, i) => (
           <div
             key={`f${i}`}
             style={{
               position: "absolute",
-              left: `${12 + i * 11}%`,
-              top: `${30 + (i % 3) * 20}%`,
-              width: 1.5,
-              height: 1.5,
+              left: `${10 + i * 9}%`,
+              top: `${20 + (i % 4) * 18}%`,
+              width: 2,
+              height: 2,
               borderRadius: "50%",
-              background: "currentColor",
+              background: "rgba(255,255,255,0.2)",
               opacity: 0,
-              animation: `fire-flicker ${6 + (i % 3) * 2}s ease-in-out infinite`,
-              animationDelay: `${i * 0.9}s`,
+              animation: `fire-flicker ${4 + (i % 4) * 1.5}s ease-in-out infinite`,
+              animationDelay: `${i * 0.7}s`,
             }}
           />
         ))}
 
-        {/* 土 — 2 條寬掃線，反向 */}
-        {[28, 72].map((top, i) => (
+        {/* 土 — 寬線反向掃 */}
+        {[25, 75].map((top, i) => (
           <div
             key={`e${i}`}
             style={{
               position: "absolute",
               top: `${top}%`,
               left: 0,
-              width: "60%",
+              width: "55%",
               height: "1px",
-              borderBottom: "1px solid currentColor",
-              opacity: 0.04,
-              animation: `earth-sweep ${38 + i * 8}s linear infinite`,
-              animationDelay: `${i * 12}s`,
+              background: "rgba(255,255,255,0.05)",
+              animation: `earth-sweep ${35 + i * 10}s linear infinite`,
+              animationDelay: `${i * 10}s`,
             }}
           />
         ))}
