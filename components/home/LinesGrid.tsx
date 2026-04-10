@@ -135,7 +135,7 @@ function LineCard({
       {/* 內容 */}
       <div className="relative z-10">
         <p className="text-2xl md:text-3xl font-bold tracking-widest mb-3">
-          {line.name}
+          {line.char}
         </p>
         <p className="text-[11px] leading-relaxed text-white/60 mb-2 hidden md:block">
           {line.poem[lang]}
