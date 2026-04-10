@@ -134,9 +134,6 @@ function LineCard({
 
       {/* 內容 */}
       <div className="relative z-10">
-        <p className="text-[10px] tracking-widest uppercase text-white/40 mb-3">
-          {line.element[lang]}
-        </p>
         <p className="text-2xl md:text-3xl font-bold tracking-widest mb-3">
           {line.name}
         </p>
