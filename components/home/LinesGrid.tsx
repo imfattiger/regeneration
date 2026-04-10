@@ -47,7 +47,7 @@ function LineCard({
 }) {
   const inner = (
     <div
-      className="relative flex flex-col justify-end p-6 md:p-8 aspect-[3/4] md:aspect-auto md:min-h-[60vh] border border-foreground/10 transition-all duration-500"
+      className="relative flex flex-col justify-end p-6 md:p-8 aspect-[3/4] md:aspect-auto md:h-[calc(100vh-4rem)] border border-foreground/10 transition-all duration-500"
       style={{
         opacity: line.available ? 1 : 0.4,
       }}

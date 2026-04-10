@@ -4,6 +4,7 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { featuredProductsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import ElementsBackground from "@/components/home/ElementsBackground";
 
 type Product = {
   _id: string;
@@ -26,6 +27,7 @@ export default async function HomePage() {
 
   return (
     <div>
+      <ElementsBackground />
       {/* Hero */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <p className="text-xs tracking-widest uppercase text-muted mb-6">
