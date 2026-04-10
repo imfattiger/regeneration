@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 
 const LINES = [
@@ -11,6 +12,7 @@ const LINES = [
     desc: { zhTW: "選材製作", en: "Curated Materials" },
     href: "/shop",
     available: true,
+    bgImage: "/lines/lann.jpg",
   },
   {
     char: "然",
@@ -19,6 +21,7 @@ const LINES = [
     desc: { zhTW: "客訂製作", en: "Custom Orders" },
     href: "/shop",
     available: true,
+    bgImage: "/lines/ember.jpg",
   },
   {
     char: "苒",
@@ -27,6 +30,7 @@ const LINES = [
     desc: { zhTW: "品牌量產", en: "Production Line" },
     href: "/shop",
     available: true,
+    bgImage: "/lines/terra.jpg",
   },
   {
     char: "嵐",
@@ -35,6 +39,7 @@ const LINES = [
     desc: { zhTW: "精品支線", en: "Premium Line" },
     href: null,
     available: false,
+    bgImage: "/lines/aura.jpg",
   },
 ];
 
@@ -47,19 +52,40 @@ function LineCard({
 }) {
   const inner = (
     <div
-      className="relative flex flex-col justify-end p-6 md:p-8 aspect-[3/4] md:aspect-auto md:h-[calc(100vh-4rem)] border border-foreground/10 transition-all duration-500"
+      className="relative flex flex-col justify-end p-6 md:p-8 aspect-[3/4] md:aspect-auto md:h-[calc(100vh-4rem)] border border-foreground/10 transition-all duration-500 overflow-hidden"
       style={{
         opacity: line.available ? 1 : 0.4,
       }}
     >
-      {/* 大漢字背景 */}
-      <span
-        className="absolute inset-0 flex items-center justify-center text-[8rem] md:text-[10rem] font-bold leading-none select-none transition-opacity duration-500"
-        style={{ opacity: 0.06 }}
-        aria-hidden="true"
-      >
-        {line.char}
-      </span>
+      {/* 背景圖 */}
+      {line.bgImage && (
+        <Image
+          src={line.bgImage}
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* 底部漸層，確保文字可讀 */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)",
+        }}
+      />
+
+      {/* 大漢字背景（無背景圖時才顯示） */}
+      {!line.bgImage && (
+        <span
+          className="absolute inset-0 flex items-center justify-center text-[8rem] md:text-[10rem] font-bold leading-none select-none"
+          style={{ opacity: 0.06 }}
+          aria-hidden="true"
+        >
+          {line.char}
+        </span>
+      )}
 
       {/* 內容 */}
       <div className="relative z-10">
