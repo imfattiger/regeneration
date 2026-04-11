@@ -107,7 +107,10 @@ export default async function LookbookSlugPage({
                       : product.status === "coming_soon"
                         ? lang === "en" ? "Coming Soon" : "即將上市"
                         : product.salePrice
-                          ? `NT$ ${product.salePrice.toLocaleString()}`
+                          ? <span className="flex items-center gap-1.5">
+                              <span className="line-through opacity-50">NT$ {product.price?.toLocaleString()}</span>
+                              <span>NT$ {product.salePrice.toLocaleString()}</span>
+                            </span>
                           : `NT$ ${product.price?.toLocaleString()}`}
                   </p>
                 </Link>
