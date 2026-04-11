@@ -14,6 +14,7 @@ export default defineConfig({
     structureTool({
       structure: (S, context) =>
         S.list()
+          .id("root")
           .title("內容")
           .items([
             orderableDocumentListDeskItem({
