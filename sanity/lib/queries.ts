@@ -70,6 +70,19 @@ export const productListQuery = groq`
   }
 `;
 
+export const lookbookLineQuery = groq`
+  *[_type == "product" && line == $line] | order(_createdAt desc) {
+    _id,
+    name,
+    slug,
+    price,
+    salePrice,
+    status,
+    line,
+    "coverImage": images[0]
+  }
+`;
+
 export const productDetailQuery = groq`
   *[_type == "product" && slug.current == $slug][0] {
     _id,

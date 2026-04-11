@@ -74,6 +74,21 @@ export const product = defineType({
       initialValue: "available",
     }),
     defineField({
+      name: "line",
+      title: "所屬系列",
+      type: "string",
+      options: {
+        list: [
+          { title: "瀾 — 選材製作", value: "lann" },
+          { title: "然 — 客訂製作", value: "ember" },
+          { title: "苒 — 品牌量產", value: "terra" },
+          { title: "嵐 — 精品支線", value: "aura" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "lann",
+    }),
+    defineField({
       name: "featured",
       title: "首頁精選",
       type: "boolean",
