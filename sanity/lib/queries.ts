@@ -59,7 +59,7 @@ export const featuredProductsQuery = groq`
 `;
 
 export const productListQuery = groq`
-  *[_type == "product"] | order(status asc, _createdAt desc) {
+  *[_type == "product"] | order(status == "sold_out" asc, sortOrder asc, _createdAt desc) {
     _id,
     name,
     slug,
@@ -71,7 +71,7 @@ export const productListQuery = groq`
 `;
 
 export const lookbookLineQuery = groq`
-  *[_type == "product" && line == $line] | order(_createdAt desc) {
+  *[_type == "product" && line == $line] | order(status == "sold_out" asc, sortOrder asc, _createdAt desc) {
     _id,
     name,
     slug,

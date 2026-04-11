@@ -89,6 +89,12 @@ export const product = defineType({
       initialValue: "lann",
     }),
     defineField({
+      name: "sortOrder",
+      title: "排列順序（數字越小越前面）",
+      type: "number",
+      initialValue: 99,
+    }),
+    defineField({
       name: "featured",
       title: "首頁精選",
       type: "boolean",
