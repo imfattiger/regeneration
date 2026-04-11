@@ -19,8 +19,8 @@ const LINES = [
     },
     href: "/lookbook/lann",
     available: true,
-    bgWeb: "/lookbook/lann-web.jpg",
-    bgPhone: "/lookbook/lann-phone.jpg",
+    bgWeb: "/lines/lann-web.jpg",
+    bgPhone: "/lines/lann-phone.jpg",
   },
   {
     char: "然",
@@ -36,8 +36,8 @@ const LINES = [
     },
     href: "/lookbook/ember",
     available: true,
-    bgWeb: "/lookbook/ember-web.jpg",
-    bgPhone: "/lookbook/ember-phone.jpg",
+    bgWeb: "/lines/ember-web.jpg",
+    bgPhone: "/lines/ember-phone.jpg",
   },
   {
     char: "苒",
@@ -53,8 +53,8 @@ const LINES = [
     },
     href: "/lookbook/terra",
     available: true,
-    bgWeb: "/lookbook/terra-web.jpg",
-    bgPhone: "/lookbook/terra-phone.jpg",
+    bgWeb: "/lines/terra-web.jpg",
+    bgPhone: "/lines/terra-phone.jpg",
   },
   {
     char: "嵐",
