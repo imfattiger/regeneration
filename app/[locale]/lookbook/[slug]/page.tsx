@@ -43,7 +43,6 @@ export default async function LookbookEntryPage({
   return (
     <div className="pt-24">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        {/* Back link */}
         <Link
           href="/lookbook"
           className="text-xs tracking-widest uppercase text-muted hover:text-foreground transition-colors mb-12 block"
@@ -52,14 +51,10 @@ export default async function LookbookEntryPage({
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Images */}
           <div className="flex flex-col gap-4">
             {images.length > 0 ? (
               images.map((img, i) => (
-                <div
-                  key={i}
-                  className="aspect-square relative overflow-hidden bg-foreground/5"
-                >
+                <div key={i} className="aspect-square relative overflow-hidden bg-foreground/5">
                   <Image
                     src={urlFor(img).width(1200).height(1200).url()}
                     alt={`${entry.title[lang]} ${i + 1}`}
@@ -71,18 +66,13 @@ export default async function LookbookEntryPage({
               ))
             ) : (
               <div className="aspect-square bg-foreground/5 flex items-center justify-center">
-                <span className="text-xs tracking-widest uppercase text-foreground/20">
-                  No Image
-                </span>
+                <span className="text-xs tracking-widest uppercase text-foreground/20">No Image</span>
               </div>
             )}
           </div>
 
-          {/* Info */}
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <h1 className="text-2xl md:text-3xl font-bold mb-8">
-              {entry.title[lang]}
-            </h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-8">{entry.title[lang]}</h1>
 
             {entry.materialStory && (
               <div className="mb-12">
@@ -95,7 +85,6 @@ export default async function LookbookEntryPage({
               </div>
             )}
 
-            {/* Related product */}
             {entry.relatedProduct && (
               <div className="border-t border-foreground/10 pt-8">
                 <p className="text-xs tracking-widest uppercase text-muted mb-4">
@@ -108,10 +97,7 @@ export default async function LookbookEntryPage({
                   {entry.relatedProduct.coverImage && (
                     <div className="w-16 h-16 relative overflow-hidden bg-foreground/5 flex-shrink-0">
                       <Image
-                        src={urlFor(entry.relatedProduct.coverImage)
-                          .width(128)
-                          .height(128)
-                          .url()}
+                        src={urlFor(entry.relatedProduct.coverImage).width(128).height(128).url()}
                         alt={entry.relatedProduct.name[lang]}
                         fill
                         className="object-cover"
@@ -119,18 +105,12 @@ export default async function LookbookEntryPage({
                     </div>
                   )}
                   <div>
-                    <p className="text-sm font-bold">
-                      {entry.relatedProduct.name[lang]}
-                    </p>
+                    <p className="text-sm font-bold">{entry.relatedProduct.name[lang]}</p>
                     <p className="text-sm text-foreground/50">
                       {entry.relatedProduct.status === "sold_out"
-                        ? locale === "en"
-                          ? "Sold Out"
-                          : "已售完"
+                        ? locale === "en" ? "Sold Out" : "已售完"
                         : entry.relatedProduct.status === "coming_soon"
-                          ? locale === "en"
-                            ? "Coming Soon"
-                            : "即將上市"
+                          ? locale === "en" ? "Coming Soon" : "即將上市"
                           : `NT$ ${entry.relatedProduct.price?.toLocaleString()}`}
                     </p>
                   </div>
