@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart";
+import Image from "next/image";
 
 export default function Nav() {
   const t = useTranslations("nav");
@@ -39,11 +40,14 @@ export default function Nav() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-sm border-b border-foreground/10">
-        <Link
-          href="/"
-          className="text-sm font-bold tracking-widest uppercase hover:opacity-60 transition-opacity"
-        >
-          Regeneration Studio
+        <Link href="/" className="hover:opacity-70 transition-opacity">
+          <Image
+            src="/lines/logo.jpg"
+            alt="Regeneration Studio"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
         </Link>
 
         {/* Desktop nav */}
