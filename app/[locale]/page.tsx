@@ -4,11 +4,7 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { featuredProductsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
-import dynamic from "next/dynamic";
-const ElementsBackground = dynamic(
-  () => import("@/components/home/ElementsBackground"),
-  { ssr: false }
-);
+import ElementsBackground from "@/components/home/ElementsBackground";
 
 type Product = {
   _id: string;

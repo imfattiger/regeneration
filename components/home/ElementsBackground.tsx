@@ -47,6 +47,7 @@ export default function ElementsBackground() {
               background: "rgba(255,255,255,0.07)",
               animation: `water-drift ${20 + i * 5}s linear infinite`,
               animationDelay: `${i * 4}s`,
+              animationFillMode: "backwards",
             }}
           />
         ))}
@@ -102,6 +103,7 @@ export default function ElementsBackground() {
               background: "rgba(255,255,255,0.07)",
               animation: `earth-sweep ${35 + i * 10}s linear infinite`,
               animationDelay: `${i * 10}s`,
+              animationFillMode: "backwards",
             }}
           />
         ))}
