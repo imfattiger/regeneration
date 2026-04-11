@@ -19,6 +19,7 @@ export default defineConfig({
             orderableDocumentListDeskItem({
               type: "product",
               title: "商品",
+              id: "orderable-product",
               S,
               context,
             }),
